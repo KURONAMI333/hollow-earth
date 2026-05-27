@@ -1,33 +1,35 @@
-# Hollow Earth (HE)
+# Hollow Earth
 
-> Two-layer overworld: subterranean cave-ceiling world below, normal surface world above, void gap between.
+> Two overworlds stacked in one dimension. Y 0-60: an inverted cave-ceiling world. Y 80-200: the normal surface world. Y 60-80: a void gap between them.
+
+> **This is a worldgen MOD, not the *Hollow Earth* modpack.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Modrinth](https://img.shields.io/badge/Modrinth-hollow-earth-00AF5C)](https://modrinth.com/mod/hollow-earth)
-[![CurseForge](https://img.shields.io/badge/CurseForge-hollow-earth-F16436)](https://www.curseforge.com/minecraft/mc-mods/hollow-earth)
+[![NeoForge 1.21.1](https://img.shields.io/badge/NeoForge-1.21.1-orange.svg)](https://neoforged.net)
+[![Depends on Isekai API](https://img.shields.io/badge/Depends-Isekai%20API-9333ea)](https://github.com/KURONAMI333/isekai-api)
 
 ---
 
-## Supported Loaders / Versions
+## Concept
 
-| Minecraft | NeoForge | Forge | Fabric |
-|---|:---:|:---:|:---:|
-| 1.21.1 | TBD | TBD | TBD |
-| 1.20.1 |  —  | TBD | TBD |
+Climb up — the normal surface world. Dig down — at some point you punch through the void and emerge into the inverted world, hanging from the cave ceiling. Two completely different ecosystems share one dimension, connected by the void gap.
 
-(TBD: 実装後に更新)
+Inspired by hollow-earth theory (Verne's *Journey to the Center of the Earth*, Burroughs' Pellucidar, *Subnautica: Below Zero*).
 
----
+## How it works
 
-## Why?
+Hollow Earth is built on **[Isekai API](https://github.com/KURONAMI333/isekai-api)**, a neutral universal worldgen library.
 
-(目的、解決する問題を 2-3 行で)
+This consumer is the first one to drive the library's **multi-layer worldshape** machinery (`declareLayeredWorldshape` with `TransitionRule.Gap`). The library has no concept of "hollow earth" — Hollow Earth just composes `mask_y_range`, `SurfaceAnchor.WorldSurface` for the outer layer, and a custom `SurfaceAnchor` for the inverted ceiling layer.
 
-## Installation
+## Status
 
-1. ローダー導入
-2. 依存 MOD 導入（あれば）
-3. `hollow-earth-X.Y.Z-{loader}-{mc}.jar` を `mods/` に配置
+**v0.1**: skeleton. `LayeredDescriptor` declaration + density composition land with Isekai API v0.2.
+
+## Dependencies
+
+- NeoForge 1.21.1
+- [Isekai API](https://github.com/KURONAMI333/isekai-api) (required)
 
 ## License
 
